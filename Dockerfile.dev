@@ -1,0 +1,24 @@
+#specify initial image
+
+FROM node:alpine
+
+#change working directory
+
+WORKDIR /usr/apps/frontend
+
+#copy package.json
+
+COPY package.json .
+
+#install dependencies
+
+RUN npm install
+
+#copy remaining files
+
+COPY . .
+
+#set default container command
+
+CMD ["npm","run","start"]
+
